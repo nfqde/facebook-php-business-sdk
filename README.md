@@ -315,3 +315,36 @@ To run tests individually:
 ```shell
 ./vendor/bin/phpunit -c test/ path/to/class/file
 ```
+
+
+## Debug
+
+If this SDK is not working as expected, it may be either a SDK issue or API issue.
+
+This can be identified by constructing a raw cURL request and seeing if the response is as expected
+
+for example:
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+use FacebookAds\Api;
+use FacebookAds\Object\AdAccount;
+
+Api::init($app_id, $app_secret, $access_token);
+$api = Api::instance();
+
+use FacebookAds\Logger\CurlLogger;
+$api->setLogger(new CurlLogger());
+$account = new AdAccount($account_id);
+$account->read(array('id'));
+```
+
+When running this code, this cURL request will be printed to the console as:
+```
+curl -G \
+  -d 'fields=id' \
+  -d 'access_token=<access_token>' \
+  https://graph.facebook.com/v3.1/<act_accountid>
+```
+
+If the response is not as expected, then it's an API issue. Please report this API issue on <a href="https://developers.facebook.com/support/bugs/" target="_blank">our developer bug reporting channel</a>

@@ -859,9 +859,9 @@ class AdAccount extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/adimages',
-      new AbstractCrudObject(),
+      new AdImage(),
       'EDGE',
-      array(),
+      AdImage::getFieldsEnum()->getValues(),
       new TypeChecker($param_types, $enums),
       true
     );
