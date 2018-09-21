@@ -41,8 +41,8 @@ $fields = array(
 $params = array(
   'name' => 'My First Adset',
   'lifetime_budget' => '20000',
-  'start_time' => '2018-08-22T15:28:49-0700',
-  'end_time' => '2018-09-01T15:28:49-0700',
+  'start_time' => '2018-09-20T12:16:41-0700',
+  'end_time' => '2018-09-30T12:16:41-0700',
   'campaign_id' => '<adCampaignLinkClicksID>',
   'bid_amount' => '100',
   'billing_event' => 'LINK_CLICKS',
@@ -53,4 +53,4 @@ $params = array(
 echo json_encode((new AdAccount($id))->createAdSet(
   $fields,
   $params
-)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+)->exportAllData(), JSON_PRETTY_PRINT);

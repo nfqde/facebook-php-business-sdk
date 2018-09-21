@@ -41,8 +41,8 @@ $fields = array(
 $params = array(
   'name' => 'My Offer Claim AdSet',
   'lifetime_budget' => '56000',
-  'start_time' => '2018-08-22T15:27:25-0700',
-  'end_time' => '2018-08-29T15:27:25-0700',
+  'start_time' => '2018-09-20T12:14:33-0700',
+  'end_time' => '2018-09-27T12:14:33-0700',
   'campaign_id' => '<adCampaignLinkClicksID>',
   'billing_event' => 'LINK_CLICKS',
   'optimization_goal' => 'LINK_CLICKS',
@@ -53,4 +53,4 @@ $params = array(
 echo json_encode((new AdAccount($id))->createAdSet(
   $fields,
   $params
-)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+)->exportAllData(), JSON_PRETTY_PRINT);

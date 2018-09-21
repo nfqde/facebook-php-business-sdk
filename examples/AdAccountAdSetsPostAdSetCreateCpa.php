@@ -42,8 +42,8 @@ $params = array(
   'name' => 'A CPA Ad Set',
   'campaign_id' => '<adCampaignLinkClicksID>',
   'daily_budget' => '5000',
-  'start_time' => '2018-08-29T15:26:00-0700',
-  'end_time' => '2018-09-05T15:26:00-0700',
+  'start_time' => '2018-09-27T12:12:21-0700',
+  'end_time' => '2018-10-04T12:12:21-0700',
   'billing_event' => 'IMPRESSIONS',
   'optimization_goal' => 'REACH',
   'bid_amount' => '1000',
@@ -56,4 +56,4 @@ $params = array(
 echo json_encode((new AdAccount($id))->createAdSet(
   $fields,
   $params
-)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+)->exportAllData(), JSON_PRETTY_PRINT);

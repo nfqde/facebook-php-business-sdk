@@ -46,4 +46,4 @@ $params = array(
 echo json_encode((new AdAccount($id))->createCampaign(
   $fields,
   $params
-)->getResponse()->getContent(), JSON_PRETTY_PRINT);
+)->exportAllData(), JSON_PRETTY_PRINT);
