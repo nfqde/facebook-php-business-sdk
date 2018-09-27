@@ -422,33 +422,6 @@ class Page extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function createAdMIn(array $fields = array(), array $params = array(), $pending = false) {
-    $this->assureId();
-
-    $param_types = array(
-      'trusted' => 'bool',
-      'admin_id' => 'int',
-      'tasks' => 'list<tasks_enum>',
-    );
-    $enums = array(
-      'tasks_enum' => UserTasksValues::getInstance()->getValues(),
-    );
-
-    $request = new ApiRequest(
-      $this->api,
-      $this->data['id'],
-      RequestInterface::METHOD_POST,
-      '/admins',
-      new User(),
-      'EDGE',
-      User::getFieldsEnum()->getValues(),
-      new TypeChecker($param_types, $enums)
-    );
-    $request->addParams($params);
-    $request->addFields($fields);
-    return $pending ? $request : $request->execute();
-  }
-
   public function createAdMInStickySetting(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
